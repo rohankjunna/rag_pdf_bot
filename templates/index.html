@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Chat AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="chat-wrapper">
+
+    <div class="chat-header">📄 PDF Chat Assistant</div>
+
+    <div class="chat-box">
+        {% for item in chat %}
+            <div class="msg user">{{ item.q }}</div>
+            <div class="msg bot">{{ item.a }}</div>
+        {% endfor %}
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="chat-input">
+        <input type="file" name="pdf" required>
+        <input type="text" name="question" placeholder="Ask something from the PDF..." required>
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+
+</body>
+</html>
